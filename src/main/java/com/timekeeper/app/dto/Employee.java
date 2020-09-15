@@ -4,8 +4,7 @@ import java.util.UUID;
 import lombok.Data;
 import com.timekeeper.app.dto.enums.PayStructure;
 
-public @Data
-class Employee {
+public @Data class Employee {
     private UUID uuid;
     private String firstName;
     private String lastName;
