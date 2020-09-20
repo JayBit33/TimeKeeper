@@ -81,7 +81,9 @@ Then I am taken to the Supervisor view where I can view payroll.
 ![](images/class_uml.jpg)
 
 **JSON Schema**
+
 ![](images/json_schema.png)
+
 **Scrum Roles**
 
 Project manager: Justin Roseman
