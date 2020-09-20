@@ -78,7 +78,7 @@ Then I am taken to the Supervisor view where I can view payroll.
 
 **Class Diagram**
 
-![](RackMultipart20200920-4-izp33v_html_a4a95077fc428e63.jpg)
+![](images class_uml.jpg)
 
 **JSON Schema**
 
