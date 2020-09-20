@@ -4,7 +4,7 @@ Timekeeper is a time keeping application designed for companies to track employe
 
 **Storyboard / Screen Mockups**
 
-| Start Screen | ![](images/filename main_page.png) |
+| Start Screen | ![](images/main_page.png) |
 | --- | --- |
 | Employee Login | ![](images/login.png) |
 | Employee Main | ![](images/employee_main.png) |
