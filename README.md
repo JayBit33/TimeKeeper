@@ -97,3 +97,5 @@ UI: Minh-Dao Vu
 [https://github.com/JayBit33/TimeKeeper](https://github.com/JayBit33/TimeKeeper)
 
 **Teams Link for Stand-Ups**
+Time is now Tuesday at 6PM
+https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZTZmNDg3Y2MtN2VkZi00NzU3LWI0MTktM2EzZmQ4MDQyZWY2%40thread.v2/0?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%22658973be-03e2-4222-9e7d-ab33bc59a71a%22%7d
