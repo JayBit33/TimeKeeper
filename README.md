@@ -4,15 +4,15 @@ Timekeeper is a time keeping application designed for companies to track employe
 
 **Storyboard / Screen Mockups**
 
-| Start Screen | ![](RackMultipart20200920-4-izp33v_html_de07cc39ced90a63.png) |
+| Start Screen | ![](images/filename main_page.png) |
 | --- | --- |
-| Employee Login | ![](RackMultipart20200920-4-izp33v_html_45ffd0ae5bcb3a35.png) |
-| Employee Main | ![](RackMultipart20200920-4-izp33v_html_efe61a4198b753ef.png) |
-| Employee Current Period | ![](RackMultipart20200920-4-izp33v_html_3c63a9bbbd44c520.png) |
-| Employee Payroll | ![](RackMultipart20200920-4-izp33v_html_f7b6d645469cc66d.png) |
-| Supervisor Login | ![](RackMultipart20200920-4-izp33v_html_45ffd0ae5bcb3a35.png) |
-| Supervisor Payroll | ![](RackMultipart20200920-4-izp33v_html_a400444716b21505.png) |
-| Supervisor Edit Payroll | ![](RackMultipart20200920-4-izp33v_html_840ee7c73184bf0f.png) |
+| Employee Login | ![](images/filename login.png) |
+| Employee Main | ![](images/filename employee_main.png) |
+| Employee Current Period | ![](images/filename emp_current_period.png) |
+| Employee Payroll | ![](images/filename employee_payroll.png) |
+| Supervisor Login | ![](images/filename login.png) |
+| Supervisor Payroll | ![](images/filename supervisor_payroll.png) |
+| Supervisor Edit Payroll | ![](images/filename supervisor_edit_payroll.png) |
 
 **Functional Requirements**
 
@@ -78,7 +78,7 @@ Then I am taken to the Supervisor view where I can view payroll.
 
 **Class Diagram**
 
-![](images class_uml.jpg)
+![](images/filename class_uml.jpg)
 
 **JSON Schema**
 
