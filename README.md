@@ -76,7 +76,7 @@ Justin Roseman | Juan O. Lopez Rosado | Minh-Dao Vu
 
 [https://github.com/JayBit33/TimeKeeper](https://github.com/JayBit33/TimeKeeper)
 
-# Weekly Stand-up Meeting 
+## Weekly Stand-up Meeting 
 
 Every Tuesday at 6PM 
 
