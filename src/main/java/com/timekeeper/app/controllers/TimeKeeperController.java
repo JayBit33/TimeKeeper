@@ -6,6 +6,7 @@ import com.timekeeper.app.dto.enums.PayFrequency;
 import com.timekeeper.app.dto.enums.PayStructure;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -14,30 +15,40 @@ import java.util.UUID;
 
 /**
  * Handles REST endpoints and UI events
+ * Responds to User actions
  */
 @Controller
 public class TimeKeeperController {
 
     @RequestMapping("/")
     public String index() {
-        Employee employee = new Employee();
-        employee.setFirstName("Justin");
-        employee.setLastName("Coder");
-        employee.setUuid(UUID.randomUUID());
-        employee.setPayType(PayStructure.SALARY);
-        employee.setWage(1000000.00);
-        employee.setHoursWorkedThisPayPeriod(43);
-
-        Payroll pay = new Payroll();
-        pay.setEmployee(employee);
-        pay.setFrequency(PayFrequency.BIWEEKLY);
-        LocalDate today = LocalDate.now();
-        pay.setDate(Date.valueOf(today));
-        pay.setAmountPaid(1722.11);
-
-        System.out.println(pay.getDate());
-
         return "index";
+    }
+
+    @RequestMapping("/employee-login")
+    public String employeeLogin() {
+        return "employee-login";
+    }
+
+    @RequestMapping("/supervisor-login")
+    public String supervisorLogin() {
+        return "supervisor-login";
+    }
+
+    @RequestMapping("/employee-view")
+    public String employeeView(Model model) {
+        Employee emp = new Employee();
+        emp.setFirstName("Jay");
+        emp.setLastName("Coder");
+
+        model.addAttribute(emp);
+
+        return "employee-view";
+    }
+
+    @RequestMapping("/supervisor-view")
+    public String supervisorView() {
+        return "supervisor-view";
     }
 
     @GetMapping("/employee")
@@ -60,14 +71,6 @@ public class TimeKeeperController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping("/employee/{id}/") // method=RequestMethod.POST
-    public ResponseEntity index(@PathVariable("id") String id) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.TEXT_PLAIN);
-        ResponseEntity response = new ResponseEntity("Your id  is " + id, headers, HttpStatus.OK);
-        return response;
-    }
-
     @RequestMapping("validJson")
     public ResponseEntity validJson() {
         HttpHeaders headers = new HttpHeaders();
@@ -75,6 +78,9 @@ public class TimeKeeperController {
         ResponseEntity response = new ResponseEntity("{ name: Spring API}", headers, HttpStatus.OK);
         return  response;
     }
+
+
+
 
     // Automatic JSON conversion from java object
     @RequestMapping("/jsonObject")
