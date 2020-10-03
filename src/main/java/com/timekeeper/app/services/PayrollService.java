@@ -16,4 +16,8 @@ public class PayrollService implements IPayrollService {
         payroll.calculateAmountPaid();
         log.add(payroll);
     }
+
+    public ArrayList<Payroll> fetchAll() {
+        return this.log;
+    }
 }

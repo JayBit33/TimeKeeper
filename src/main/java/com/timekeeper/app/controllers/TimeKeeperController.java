@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -75,6 +76,11 @@ public class TimeKeeperController {
         return "employee-view";
     }
 
+    @GetMapping("/all-payroll")
+    @ResponseBody
+    public ArrayList<Payroll> fetchAllPayroll() {
+        return payrollService.fetchAll();
+    }
 
 
 
