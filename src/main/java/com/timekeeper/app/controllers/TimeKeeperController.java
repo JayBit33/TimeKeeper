@@ -4,6 +4,9 @@ import com.timekeeper.app.dto.Employee;
 import com.timekeeper.app.dto.Payroll;
 import com.timekeeper.app.dto.enums.PayFrequency;
 import com.timekeeper.app.dto.enums.PayStructure;
+import com.timekeeper.app.services.IPayrollService;
+import com.timekeeper.app.services.PayrollService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +22,8 @@ import java.util.UUID;
  */
 @Controller
 public class TimeKeeperController {
+
+    PayrollService payrollService = new PayrollService();
 
     @RequestMapping("/")
     public String index() {
@@ -40,9 +45,18 @@ public class TimeKeeperController {
         Employee emp = new Employee();
         emp.setFirstName("Jay");
         emp.setLastName("Coder");
+        emp.setWage(18.00);
+        emp.setPayType(PayStructure.HOURLY);
+
+
+        Payroll payroll = new Payroll();
+        payroll.setEmployee(emp);
+        LocalDate today = LocalDate.now();
+        payroll.setDate(String.valueOf(Date.valueOf(today)));
 
         model.addAttribute(emp);
-
+        model.addAttribute(payroll);
+        model.addAttribute(payrollService);
         return "employee-view";
     }
 
@@ -51,6 +65,20 @@ public class TimeKeeperController {
         return "supervisor-view";
     }
 
+    @RequestMapping("/submitPayroll")
+    public String submitPayroll(Payroll payroll) {
+        try {
+            payrollService.savePayroll(payroll);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "employee-view";
+    }
+
+
+
+
+    // All Routes from here down are for example reference. NOT PART OF PROJECT
     @GetMapping("/employee")
     public ResponseEntity fetchAllEmployees() {
         return new ResponseEntity(HttpStatus.OK);
@@ -92,7 +120,6 @@ public class TimeKeeperController {
         employee.setUuid(UUID.randomUUID());
         employee.setPayType(PayStructure.SALARY);
         employee.setWage(100000.00);
-        employee.setHoursWorkedThisPayPeriod(39);
         return employee;
     }
 

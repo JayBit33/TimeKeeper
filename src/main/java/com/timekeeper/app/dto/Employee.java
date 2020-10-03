@@ -10,7 +10,6 @@ public @Data class Employee {
     private String lastName;
     private PayStructure payType;
     private double wage; // can be set to annual salary or hourly wage.
-    private double hoursWorkedThisPayPeriod;
 
     public String getFullName() {
         return this.firstName + " " + this.lastName;

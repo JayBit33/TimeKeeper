@@ -5,11 +5,35 @@
     <title>Employee View</title>
 </head>
 <body>
-    <h3 th:text="${employee.getFullName() }"/>
+    <h3 th:text="${employee.getFullName()}"/>
 
-    <button>Enter Weekly Payroll</button>
-    <p>ability to add new payroll record</p>
+    <h2>Enter Weekly Payroll</h2>
+    <form action="#" th:action="@{submitPayroll}" th:object="${payroll}" method="POST">
+        <label>Employee</label>
+        <input type="text" name="employee" th:field="*{employee}"/>
+        <label>Date:</label>
+        <input type="text" name="date" th:field="*{date}"/>
+        <label>Hours Worked:</label>
+        <input type="text" name="hours" th:field="*{hoursWorked}"/>
+        <label>Amount Paid</label>
+        <input type="text" name="hours" th:field="*{amountPaid}"/>
+        <button name="submit" type="submit" value="0">Submit</button>
+    </form>
+
     <p> Shows table with weekly payroll records for this employee</p>
-
+    <tabel>
+        <tr>
+            <td>Employee</td>
+            <td>Date</td>
+            <td>Hours</td>
+            <td>Pay</td>
+        </tr>
+        <tr th:each="payroll: ${payrollService.log}">
+            <td th:text="${payroll.employee.getFullName()}"></td>
+            <td th:text="${payroll.date}"></td>
+            <td th:text="${payroll.hoursWorked}"></td>
+            <td th:text="${payroll.amountPaid}"></td>
+        </tr>
+    </tabel>
 </body>
 </html>
