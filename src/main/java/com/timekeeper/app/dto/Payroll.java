@@ -9,8 +9,8 @@ import java.util.Date;
 public @Data class Payroll {
     private Employee employee;
     private String date;
-    private double hoursWorked;
-    private double amountPaid;
+    private int hoursWorked;
+    private int amountPaid;
 
     public double calculateAmountPaid() {
         if (this.employee.getPayType() == PayStructure.HOURLY) {
