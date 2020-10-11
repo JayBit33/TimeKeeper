@@ -1,9 +1,8 @@
 package com.timekeeper.app;
 
 import com.timekeeper.app.dto.Employee;
-import com.timekeeper.app.dto.Payroll;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+
+import org.junit.Test;
 
 @SpringBootTest
 class AppApplicationTests {
