@@ -15,8 +15,12 @@ public @Data class Payroll {
     private double amountPaid;
 
 
-    /*
-    *   Simple rounding method to insure that all monetary values set are to two decimal places.
+    /**
+     * Returns the inputted double rounded to the inputted amount of places.
+     *
+     * @param value the double to be rounded
+     * @param places the number of decimal places to be rounded to
+     * @return an appropriately rounded double
      */
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
@@ -26,6 +30,10 @@ public @Data class Payroll {
         return bd.doubleValue();
     }
 
+    /**
+     * Calculates the amount an employee should be paid this pay cycle.
+     * @return A double amount that reflects the amount an employee is to be paid for the current pay cycle
+     */
     public double calculateAmountPaid() {
         if (this.employee.getPayType() == PayStructure.HOURLY) {
             this.setAmountPaid(round(hoursWorked * employee.getWage(),2));
