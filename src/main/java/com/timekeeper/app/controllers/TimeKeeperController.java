@@ -24,7 +24,8 @@ import java.util.UUID;
 @Controller
 public class TimeKeeperController {
 
-    PayrollService payrollService = new PayrollService();
+    @Autowired
+    IPayrollService payrollService;
 
     @RequestMapping("/")
     public String index() {
