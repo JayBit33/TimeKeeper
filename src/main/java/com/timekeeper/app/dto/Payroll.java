@@ -3,6 +3,7 @@ package com.timekeeper.app.dto;
 import com.timekeeper.app.dto.enums.PayFrequency;
 import com.timekeeper.app.dto.enums.PayStructure;
 import lombok.Data;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -14,6 +15,18 @@ public @Data class Payroll {
     private double hoursWorked;
     private double amountPaid;
 
+    /**
+     * Sets the hours worked while making sure that a negative value cannot be set
+     * @param hoursWorked A double that reflects the amount of hours worked
+     */
+
+
+    public void setHoursWorked(double hoursWorked){
+        if (hoursWorked <0.0){
+            hoursWorked = 0.0;
+        }
+        this.hoursWorked = hoursWorked;
+    }
 
     /**
      * Returns the inputted double rounded to the inputted amount of places.
