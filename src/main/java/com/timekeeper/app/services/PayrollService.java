@@ -1,12 +1,15 @@
 package com.timekeeper.app.services;
 
 import com.timekeeper.app.dto.Payroll;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
 /**
  * Service layer handles business logic
  */
+
+@Component
 public class PayrollService implements IPayrollService {
     // temporary to hold saved payroll.
     public ArrayList<Payroll> log = new ArrayList<>();
