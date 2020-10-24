@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.List;
 
 /**
  * Handles REST endpoints and UI events
@@ -78,7 +78,7 @@ public class TimeKeeperController {
 
     @GetMapping("/all-payroll")
     @ResponseBody
-    public ArrayList<Payroll> fetchAllPayroll() {
+    public List<Payroll> fetchAllPayroll() {
         return payrollService.fetchAll();
     }
 
