@@ -4,9 +4,17 @@ import com.timekeeper.app.dto.enums.PayFrequency;
 import com.timekeeper.app.dto.enums.PayStructure;
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public @Data class Payroll {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int payrollId;
     private Employee employee;
     private String date;
     private double hoursWorked;

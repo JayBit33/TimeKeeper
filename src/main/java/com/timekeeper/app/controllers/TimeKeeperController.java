@@ -123,7 +123,6 @@ public class TimeKeeperController {
         Employee employee = new Employee();
         employee.setFirstName("Jayda");
         employee.setLastName("Coder");
-        employee.setUuid(UUID.randomUUID());
         employee.setPayType(PayStructure.SALARY);
         employee.setWage(100000.00);
         return employee;
