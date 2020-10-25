@@ -27,11 +27,11 @@ public class EmployeeSQLDAO implements IEmployeeDAO {
 
     @Override
     public Employee fetch(int id) {
-        return null;
+        return employeeRepository.findById(id).get();
     }
 
     @Override
     public void delete(int id) {
-
+        employeeRepository.deleteById(id);
     }
 }

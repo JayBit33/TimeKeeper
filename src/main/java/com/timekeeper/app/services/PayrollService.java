@@ -29,7 +29,7 @@ public class PayrollService implements IPayrollService {
     }
 
     @Override
-    public Optional<Payroll> fetchPayrollById(int id) {
+    public Payroll fetchPayrollById(int id) {
         return payrollDB.fetch(id);
     }
 

@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface IPayrollDAO {
     public Payroll save(Payroll payroll);
     public List<Payroll> fetchAll();
-    public Optional<Payroll> fetch(int id);
+    public Payroll fetch(int id);
     public void delete(int id);
 }

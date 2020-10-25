@@ -27,9 +27,8 @@ public class PayrollSQLDAO implements IPayrollDAO {
     }
 
     @Override
-    public Optional<Payroll> fetch(int id) {
-        Optional<Payroll> payrollById =  payrollRepository.findById(id);
-        return payrollById;
+    public Payroll fetch(int id) {
+        return payrollRepository.findById(id).get();
     }
 
     @Override

@@ -9,6 +9,6 @@ public interface IPayrollService {
 
     public void savePayroll(Payroll payroll);
     public List<Payroll> fetchAll();
-    public Optional<Payroll> fetchPayrollById(int id);
+    public Payroll fetchPayrollById(int id);
     public void deletePayroll(int id);
 }
