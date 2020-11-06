@@ -22,7 +22,7 @@ class AppApplicationTests {
         thenEmployeeAccountCreated();
     }
 
-    private void givenEmployeeOnSignupPage() {
+    public void givenEmployeeOnSignupPage() {
     }
 
     private void whenRequiredFieldsAreSubmitted() {

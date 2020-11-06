@@ -18,7 +18,7 @@
 <body>
     <h3 th:text="${employee.getFullName()}"/>
 
-    <h1>Enter Weekly Payroll</h1>
+    <h1>Employee Weekly Payroll Entry</h1>
     <form action="#" th:action="@{submitPayroll}" th:object="${payroll}" method="POST">
         <label>Employee</label>
         <input type="text" name="employee" th:field="*{employee}"/>
