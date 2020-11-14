@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -12,22 +11,8 @@
     <link th:href="@{/styles/main.css}" rel="stylesheet" />
 </head>
 <body>
-    <div th:insert="fragments/nav :: header" class="header">...</div>
-    <div class="container">
-        <h1>Add Payroll</h1>
-
-        <h2>Enter Weekly Payroll</h2>
-        <form action="#" th:action="@{submitPayroll}"  method="POST">
-            <label>Employee ID</label>
-            <input type="text" name="employee" />
-            <label>Date:</label>
-            <input type="text" name="date" />
-            <label>Hours Worked:</label>
-            <input type="text" name="hours" />
-            <button name="submit" type="submit" value="0" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-
-    <div th:insert="fragments/footer :: footer" class="footer">...</div>
+<div class="footer" th:fragment="footer">
+    <p class="footer-copyright">@copyright Timekeeper 2020</p>
+</div>
 </body>
 </html>
