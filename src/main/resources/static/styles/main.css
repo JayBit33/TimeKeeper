@@ -1,0 +1,21 @@
+
+h1 {
+    font-family: Arial;
+    font-size: 3rem;
+    text-align:center;
+    margin-top: 140px;
+    color: black;
+}
+
+form label, form input{
+    display: block;
+}
+
+input {
+    margin-bottom: 1rem;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

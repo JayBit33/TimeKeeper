@@ -34,7 +34,7 @@
             <td>Hours</td>
             <td>Pay</td>
         </tr>
-        <tr th:each="payroll: ${payrollService.log}">
+        <tr th:each="payroll: ${empPayroll}">
             <td th:text="${payroll.employee.getFullName()}"></td>
             <td th:text="${payroll.date}"></td>
             <td th:text="${payroll.hoursWorked}"></td>

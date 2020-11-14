@@ -31,15 +31,12 @@ public class TimeKeeperController {
         return "index";
     }
 
-    @RequestMapping("/employee-login")
-    public String employeeLogin() {
-        return "employee-login";
-    }
+    @RequestMapping("/payroll")
+    public String payroll() { return "payroll"; }
 
-    @RequestMapping("/supervisor-login")
-    public String supervisorLogin() {
-        return "supervisor-login";
-    }
+
+
+
 
     @RequestMapping("/employee-view")
     public String employeeView(Model model) {
@@ -47,23 +44,16 @@ public class TimeKeeperController {
         emp.setFirstName("Jay");
         emp.setLastName("Coder");
         emp.setWage(18.00);
-        emp.setPayType(PayStructure.HOURLY);
 
+        List<Payroll> payroll = payrollService.fetchAll();
+//        payroll.setEmployee(emp);
+//        LocalDate today = LocalDate.now();
+//        payroll.setDate(String.valueOf(Date.valueOf(today)));
 
-        Payroll payroll = new Payroll();
-        payroll.setEmployee(emp);
-        LocalDate today = LocalDate.now();
-        payroll.setDate(String.valueOf(Date.valueOf(today)));
-
-        model.addAttribute(emp);
-        model.addAttribute(payroll);
+        model.addAttribute("employee", emp);
+        model.addAttribute("empPayroll", payroll);
         model.addAttribute(payrollService);
         return "employee-view";
-    }
-
-    @RequestMapping("/supervisor-view")
-    public String supervisorView() {
-        return "supervisor-view";
     }
 
     @RequestMapping("/submitPayroll")
@@ -123,7 +113,6 @@ public class TimeKeeperController {
         Employee employee = new Employee();
         employee.setFirstName("Jayda");
         employee.setLastName("Coder");
-        employee.setPayType(PayStructure.SALARY);
         employee.setWage(100000.00);
         return employee;
     }
