@@ -14,21 +14,91 @@
 <body>
 <div th:insert="fragments/nav :: header" class="header">...</div>
 <div class="container">
-    <h1>Payroll Records</h1>
-    <table>
-        <tr>
-            <td>Employee</td>
-            <td>Date</td>
-            <td>Hours</td>
-            <td>Pay</td>
-        </tr>
-        <tr>
-            <td>Jay Boseman</td>
-            <td>11-14-2020</td>
-            <td>40</td>
-            <td>934.00</td>
-        </tr>
+    <h1 class="mb-4">Payroll Records</h1>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Employee</th>
+                <th scope="col">Date</th>
+                <th scope="col">Hours</th>
+                <th scope="col">Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row">
+                <th>1</th>
+                <td>Jay Boseman</td>
+                <td>11-14-2020</td>
+                <td>40</td>
+                <td>934.00</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>Brittany Shore</td>
+                <td>12-27-2020</td>
+                <td>38</td>
+                <td>814.04</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>Jamie Sandstone</td>
+                <td>6-4-2020</td>
+                <td>42</td>
+                <td>1134.00</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>David Kohl</td>
+                <td>1-24-2020</td>
+                <td>40</td>
+                <td>1004.26</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>Elly Bottom</td>
+                <td>11-14-2020</td>
+                <td>40</td>
+                <td>982.23</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>Bo Jackson</td>
+                <td>11-14-2020</td>
+                <td>27</td>
+                <td>534.11</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>Jennifer Conley</td>
+                <td>11-14-2020</td>
+                <td>40</td>
+                <td>724.90</td>
+            </tr>
+            <tr scope="row">
+                <th>2</th>
+                <td>Sam Smith</td>
+                <td>11-14-2020</td>
+                <td>32</td>
+                <td>734.72</td>
+            </tr>
+        </tbody>
     </table>
+    <nav aria-label="..." class="pagination-container">
+        <ul class="pagination">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 <div th:insert="fragments/footer :: footer" class="footer">...</div>
 
