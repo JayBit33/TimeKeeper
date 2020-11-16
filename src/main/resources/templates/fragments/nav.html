@@ -26,6 +26,9 @@
                 <li th:classappend="${module == 'payroll' ? 'active' : ''}">
                     <a href="#" th:href="@{/payroll}">Payroll</a>
                 </li>
+                <li th:classappend="${module == 'employees' ? 'active' : ''}">
+                    <a href="#" th:href="@{/employees}">Employee Directory</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

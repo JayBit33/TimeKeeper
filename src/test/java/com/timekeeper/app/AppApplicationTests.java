@@ -2,7 +2,7 @@ package com.timekeeper.app;
 
 import com.timekeeper.app.dto.Employee;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 @SpringBootTest
 class AppApplicationTests {

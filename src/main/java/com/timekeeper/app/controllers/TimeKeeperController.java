@@ -5,6 +5,7 @@ import com.timekeeper.app.dto.Payroll;
 import com.timekeeper.app.dto.enums.PayFrequency;
 import com.timekeeper.app.dto.enums.PayStructure;
 import com.timekeeper.app.services.EmployeeService;
+import com.timekeeper.app.services.IEmployeeService;
 import com.timekeeper.app.services.IPayrollService;
 import com.timekeeper.app.services.PayrollService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,10 @@ import java.util.List;
  */
 @Controller
 public class TimeKeeperController {
-
-    PayrollService payrollService = new PayrollService();
-    EmployeeService employeeService = new EmployeeService();
+    @Autowired
+    IPayrollService payrollService;
+    @Autowired
+    IEmployeeService employeeService;
 
     @RequestMapping("/")
     public String index(Model model) {
@@ -38,18 +40,21 @@ public class TimeKeeperController {
     @RequestMapping("/payroll")
     public String payroll(Model model) {
         List<Payroll> payroll = payrollService.fetchAll();
+        int size = payroll.size();
         model.addAttribute("records", payroll);
+        model.addAttribute("size",size);
         return "payroll";
     }
 
-    @RequestMapping("/submitPayroll")
+    @RequestMapping(value = "/submitPayroll", method=RequestMethod.POST)
     public String submitPayroll(Payroll payroll) {
         try {
             payrollService.savePayroll(payroll);
+            return "redirect:/payroll";
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "payroll";
+        return "redirect:/payroll";
     }
 
     @RequestMapping("/employees")

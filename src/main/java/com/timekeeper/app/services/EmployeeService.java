@@ -2,10 +2,14 @@ package com.timekeeper.app.services;
 
 import com.timekeeper.app.dao.EmployeeSQLDAO;
 import com.timekeeper.app.dto.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class EmployeeService implements IEmployeeService {
+    @Autowired
     EmployeeSQLDAO employeeDB = new EmployeeSQLDAO();
 
     @Override
