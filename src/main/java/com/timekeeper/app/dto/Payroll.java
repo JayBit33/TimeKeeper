@@ -21,7 +21,7 @@ public @Data class Payroll {
 
     public double calculateAmountPaid() {
         EmployeeService employeeService = new EmployeeService();
-        Employee employee = employeeService.fetchEmployeeById(this.employeeId);
+        Employee employee = employeeService.fetchEmployeeById(1);
         this.setAmountPaid(hoursWorked * employee.getWage());
         return hoursWorked * employee.getWage();
     }

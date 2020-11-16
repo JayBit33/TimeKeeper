@@ -11,7 +11,7 @@ import javax.persistence.*;
 public @Data class Employee {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int employeeId;
+    private int id;
     private String firstName;
     private String lastName;
     private double wage;

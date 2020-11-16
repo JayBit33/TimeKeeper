@@ -45,5 +45,10 @@ table {
 }
 
 .pagination-container {
+    margin-top: 3rem;
     float: right;
+}
+.page-item:focus, .previous:active {
+    outline: none;
+    border: none;
 }
