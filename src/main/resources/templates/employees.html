@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Timekeeper - Employees</title>
+</head>
+<body>
+<li scope="row" th:each="employee: ${employees}">
+    <p th:text="${employee.id}"></p>
+    <p th:text="${employee.firstName}"></p>
+    <p th:text="${employee.lastName}"></p>
+    <p th:text="${employee.wage}"></p>
+</li>
+</body>
+</html>

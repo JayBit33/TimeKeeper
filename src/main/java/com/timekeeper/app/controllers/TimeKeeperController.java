@@ -4,6 +4,7 @@ import com.timekeeper.app.dto.Employee;
 import com.timekeeper.app.dto.Payroll;
 import com.timekeeper.app.dto.enums.PayFrequency;
 import com.timekeeper.app.dto.enums.PayStructure;
+import com.timekeeper.app.services.EmployeeService;
 import com.timekeeper.app.services.IPayrollService;
 import com.timekeeper.app.services.PayrollService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.List;
 
 /**
  * Handles REST endpoints and UI events
@@ -25,45 +26,20 @@ import java.util.UUID;
 public class TimeKeeperController {
 
     PayrollService payrollService = new PayrollService();
+    EmployeeService employeeService = new EmployeeService();
 
     @RequestMapping("/")
-    public String index() {
+    public String index(Model model) {
+        Payroll payroll = new Payroll();
+        model.addAttribute("payroll", payroll);
         return "index";
     }
 
-    @RequestMapping("/employee-login")
-    public String employeeLogin() {
-        return "employee-login";
-    }
-
-    @RequestMapping("/supervisor-login")
-    public String supervisorLogin() {
-        return "supervisor-login";
-    }
-
-    @RequestMapping("/employee-view")
-    public String employeeView(Model model) {
-        Employee emp = new Employee();
-        emp.setFirstName("Jay");
-        emp.setLastName("Coder");
-        emp.setWage(18.00);
-        emp.setPayType(PayStructure.HOURLY);
-
-
-        Payroll payroll = new Payroll();
-        payroll.setEmployee(emp);
-        LocalDate today = LocalDate.now();
-        payroll.setDate(String.valueOf(Date.valueOf(today)));
-
-        model.addAttribute(emp);
-        model.addAttribute(payroll);
-        model.addAttribute(payrollService);
-        return "employee-view";
-    }
-
-    @RequestMapping("/supervisor-view")
-    public String supervisorView() {
-        return "supervisor-view";
+    @RequestMapping("/payroll")
+    public String payroll(Model model) {
+        List<Payroll> payroll = payrollService.fetchAll();
+        model.addAttribute("records", payroll);
+        return "payroll";
     }
 
     @RequestMapping("/submitPayroll")
@@ -73,16 +49,28 @@ public class TimeKeeperController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "employee-view";
+        return "payroll";
     }
+
+    @RequestMapping("/employees")
+    public String showEmployees(Model model) {
+        List<Employee> employees = employeeService.fetchAll();
+        model.addAttribute("employees", employees);
+        return "employees";
+    }
+
+
+
+
+
+
+
 
     @GetMapping("/all-payroll")
     @ResponseBody
-    public ArrayList<Payroll> fetchAllPayroll() {
+    public List<Payroll> fetchAllPayroll() {
         return payrollService.fetchAll();
     }
-
-
 
     // All Routes from here down are for example reference. NOT PART OF PROJECT
     @GetMapping("/employee")
@@ -113,9 +101,6 @@ public class TimeKeeperController {
         return  response;
     }
 
-
-
-
     // Automatic JSON conversion from java object
     @RequestMapping("/jsonObject")
     @ResponseBody
@@ -123,8 +108,6 @@ public class TimeKeeperController {
         Employee employee = new Employee();
         employee.setFirstName("Jayda");
         employee.setLastName("Coder");
-        employee.setUuid(UUID.randomUUID());
-        employee.setPayType(PayStructure.SALARY);
         employee.setWage(100000.00);
         return employee;
     }
