@@ -40,9 +40,7 @@ public class TimeKeeperController {
     @RequestMapping("/payroll")
     public String payroll(Model model) {
         List<Payroll> payroll = payrollService.fetchAll();
-        int size = payroll.size();
         model.addAttribute("records", payroll);
-        model.addAttribute("size",size);
         return "payroll";
     }
 
@@ -60,7 +58,10 @@ public class TimeKeeperController {
     @RequestMapping("/employees")
     public String showEmployees(Model model) {
         List<Employee> employees = employeeService.fetchAll();
+        int size = employees.size();
         model.addAttribute("employees", employees);
+        model.addAttribute("numOfEmps",size);
+
         return "employees";
     }
 

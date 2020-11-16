@@ -45,10 +45,16 @@ table {
 }
 
 .pagination-container {
-    margin-top: 3rem;
+    margin-top: 1rem;
     float: right;
 }
 .page-item:focus, .previous:active {
     outline: none;
     border: none;
+}
+
+.total_emps {
+    font-size: 1.5rem;
+    color: black;
+
 }
