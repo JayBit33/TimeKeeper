@@ -47,6 +47,8 @@ public class TimeKeeperController {
     @RequestMapping(value = "/submitPayroll", method=RequestMethod.POST)
     public String submitPayroll(Payroll payroll) {
         try {
+            Employee employee = employeeService.fetchEmployeeById(payroll.getEmployeeId());
+            payroll.setAmountPaid(payroll.getHoursWorked() * employee.getWage());
             payrollService.savePayroll(payroll);
             return "redirect:/payroll";
         } catch (Exception e) {

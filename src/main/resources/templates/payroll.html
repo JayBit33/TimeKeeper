@@ -23,16 +23,18 @@
                 <th scope="col">Employee</th>
                 <th scope="col">Date</th>
                 <th scope="col">Hours</th>
+                <th scope="col">Wage</th>
                 <th scope="col">Pay</th>
             </tr>
         </thead>
         <tbody>
             <tr scope="row" th:each="record: ${records}">
                 <td th:text="${recordStat.index + 1}"></td>
-                <td th:text="${record.getName()}"></td>
+                <td th:text="${@employeeService.fetchEmployeeById(record.employeeId).getFirstName()}"></td>
                 <td th:text="${record.date}"></td>
                 <td th:text="${record.hoursWorked}"></td>
-                <td th:text="${record.getAmountPaid()}"></td>
+                <td th:text="${@employeeService.fetchEmployeeById(record.employeeId).getWage()}"></td>
+                <td th:text="${record.amountPaid}"></td>
             </tr>
         </tbody>
     </table>
