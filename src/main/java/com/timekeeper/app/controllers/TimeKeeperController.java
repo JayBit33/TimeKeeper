@@ -30,6 +30,11 @@ public class TimeKeeperController {
     @Autowired
     IEmployeeService employeeService;
 
+    /**
+     * Route for homepage.
+     * @param model
+     * @return routes to index.html
+     */
     @RequestMapping("/")
     public String index(Model model) {
         Payroll payroll = new Payroll();
@@ -37,6 +42,11 @@ public class TimeKeeperController {
         return "index";
     }
 
+    /**
+     * Route for payroll records.
+     * @param model
+     * @return routes to payroll.html
+     */
     @RequestMapping("/payroll")
     public String payroll(Model model) {
         List<Payroll> payroll = payrollService.fetchAll();
@@ -44,6 +54,11 @@ public class TimeKeeperController {
         return "payroll";
     }
 
+    /**
+     * Post route to submit payroll record from home screen
+     * @param payroll
+     * @return redirects to payroll records page
+     */
     @RequestMapping(value = "/submitPayroll", method=RequestMethod.POST)
     public String submitPayroll(Payroll payroll) {
         try {
@@ -57,6 +72,11 @@ public class TimeKeeperController {
         return "redirect:/payroll";
     }
 
+    /**
+     * Route for employee directory page
+     * @param model
+     * @return routes to employees.html
+     */
     @RequestMapping("/employees")
     public String showEmployees(Model model) {
         List<Employee> employees = employeeService.fetchAll();

@@ -17,7 +17,7 @@ public class PayrollService implements IPayrollService {
     PayrollSQLDAO payrollDB = new PayrollSQLDAO();
 
     /**
-     * Calculated payroll and saves payroll record to persistence
+     * Saves payroll record to database
      * @param payroll
      */
     @Override
@@ -34,11 +34,20 @@ public class PayrollService implements IPayrollService {
         return payrollDB.fetchAll();
     }
 
+    /**
+     * Retrives single payroll record with id
+     * @param id
+     * @return Payroll
+     */
     @Override
     public Payroll fetchPayrollById(int id) {
         return payrollDB.fetch(id);
     }
 
+    /**
+     * Removes payroll record
+     * @param id
+     */
     @Override
     public void deletePayroll(int id) {
         payrollDB.delete(id);

@@ -16,6 +16,10 @@ public @Data class Employee {
     private String lastName;
     private double wage;
 
+    /**
+     * Combines first and last name to generate full name
+     * @return Sring
+     */
     public String getFullName() {
         return this.firstName + " " + this.lastName;
     }
