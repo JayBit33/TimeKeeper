@@ -22,7 +22,6 @@ public class PayrollService implements IPayrollService {
      */
     @Override
     public void savePayroll(Payroll payroll) {
-//        payroll.calculateAmountPaid();
         payrollDB.save(payroll);
     }
 

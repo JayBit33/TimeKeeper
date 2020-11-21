@@ -28,7 +28,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr scope="row" th:each="record: ${records}">
+            <tr scope="row" th:each="record: ${records}" >
                 <td th:text="${recordStat.index + 1}"></td>
                 <td th:text="${@employeeService.fetchEmployeeById(record.employeeId).getFirstName()}"></td>
                 <td th:text="${record.date}"></td>
